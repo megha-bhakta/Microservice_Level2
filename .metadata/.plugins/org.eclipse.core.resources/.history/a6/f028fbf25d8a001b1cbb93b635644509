@@ -1,0 +1,26 @@
+package com.demo.movieinfoservice.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.demo.movieinfoservice.Model.Movie;
+
+@RestController
+@RequestMapping("/movies")
+public class MovieResource {
+	
+	@Value("${api.key}")
+	private String apikey;
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@RequestMapping("/{movieId}")
+	public Movie getMovies(@PathVariable("movieId") String movieId) {
+		 return new Movie(movieId, "Name for ID " + movieId);
+	}
+
+}

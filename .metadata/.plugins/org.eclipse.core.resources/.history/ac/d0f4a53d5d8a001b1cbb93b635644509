@@ -1,0 +1,5 @@
+package com.demo.movieinfoservice.Model;
+
+public class MovieSummary {
+
+}
